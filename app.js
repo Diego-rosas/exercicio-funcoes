@@ -81,7 +81,21 @@ function calculaMedia() {
     }
 }
 
-
+//Função 3
+function saldoMedio(saldo) {
+    if(saldo == 0 && saldo <= 200) {
+        return sprintf(" Saldo médio: %f \n\n Nenhum crédito!" , saldo);
+    } else if(saldo >= 201 && saldo <= 400) {
+        let credito = saldo * .2;
+        return sprintf(" Saldo médio: %.2f \n\n Valor do crédito: %.2f!" , saldo, credito);
+    }  else if(saldo >= 401 && saldo <= 600) {
+        let credito = saldo * .3;
+        return sprintf(" Saldo médio: %.2f \n\n Valor do crédito: %.2f!" , saldo, credito);
+    }   else if(saldo >= 601) {
+        let credito = saldo * .4;
+        return sprintf(" Saldo médio: %.2f \n\n Valor do crédito: %.2f!" , saldo, credito);
+    } 
+}
 
 
 
