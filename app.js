@@ -10,7 +10,7 @@ function mostaMenu() {
     console.log("\n Menu Principal: ");
     console.log("1. Classificaão de Idade");
     console.log("2. Calculadora de Médias");
-    console.log("3.");
+    console.log("3. Calculadora de créditos");
     console.log("4. ");
     console.log("5. Sair");
 }
@@ -62,9 +62,9 @@ function calculaMedia() {
     opcao = entrada("Digite a opção da média que deseja calcular: ");
 
     const [n1, n2, n3]= entrada("Digite as três notas(separados por espaço): ").split(" ");
-            let nota1 = parseFloat(n1);
-            let nota2 = parseFloat(n2);
-            let nota3 = parseFloat(n3);
+        let nota1 = parseFloat(n1);
+        let nota2 = parseFloat(n2);
+        let nota3 = parseFloat(n3);
 
     switch(opcao){
         case "1":
@@ -82,18 +82,21 @@ function calculaMedia() {
 }
 
 //Função 3
-function saldoMedio(saldo) {
+function saldoMedio() {
+    console.log("----- CALCULADORA DE CRÉDITOS -----");
+    const saldo = parseInt(entrada("Digite o valor so seu saldo médio: "));
+
     if(saldo == 0 && saldo <= 200) {
-        return sprintf(" Saldo médio: %f \n\n Nenhum crédito!" , saldo);
+        return console.log(sprintf(" Saldo médio: %f \n Nenhum crédito!" , saldo));
     } else if(saldo >= 201 && saldo <= 400) {
         let credito = saldo * .2;
-        return sprintf(" Saldo médio: %.2f \n\n Valor do crédito: %.2f!" , saldo, credito);
+        return console.log(sprintf(" Saldo médio: %.2f \n Valor do crédito: %.2f!" , saldo, credito));
     }  else if(saldo >= 401 && saldo <= 600) {
         let credito = saldo * .3;
-        return sprintf(" Saldo médio: %.2f \n\n Valor do crédito: %.2f!" , saldo, credito);
+        return console.log(sprintf(" Saldo médio: %.2f \n Valor do crédito: %.2f!" , saldo, credito));
     }   else if(saldo >= 601) {
         let credito = saldo * .4;
-        return sprintf(" Saldo médio: %.2f \n\n Valor do crédito: %.2f!" , saldo, credito);
+        return console.log(sprintf(" Saldo médio: %.2f \n Valor do crédito: %.2f!" , saldo, credito));
     } 
 }
 
@@ -123,7 +126,7 @@ while(opcao != "5") {
             calculaMedia();
             break;
         case "3":
-            console.log("Resultado da Multiplicação: " + multiplicacao(numero1,numero2));
+            saldoMedio();
             break;
         case "4":
             if(numero2 == 0) {
