@@ -6,13 +6,13 @@ function mostaMenu() {
     console.log("\n------------------------------------------------------------");
     console.log("        ESCOLHA A FUNÇÃO QUE DESEJA REALIZAR!               ");
     console.log("------------------------------------------------------------");
-
-    console.log("\n Menu Principal: ");
+    console.log("   Menu Principal: ");
     console.log("1. Classificaão de Idade");
     console.log("2. Calculadora de Médias");
     console.log("3. Calculadora de créditos");
-    console.log("4. ");
-    console.log("5. Sair");
+    console.log("4. Calculadora de valor total");
+    console.log("5. ");
+    console.log("6. Sair");
 }
 
 //Função 1
@@ -101,35 +101,64 @@ function saldoMedio() {
 }
 
 //Função 4
- function calculaPreco() {
-    const precos = [[5,32], [6,45], [2,37]];
+function calculaPreco() {
+    const precos = [[2,32], [3,45], [4,37], [5,32], [6,45]];
 
-    console.log("----- CALCULADORA DE PREÇOS -----");
-    console.log("Código do produto          Preço unitário");
-    console.log("       5 ----------------- R$ 32,00");
-    console.log("       6 ----------------- R$ 45,00");
-    console.log("       2 ----------------- R$ 37,00");
-    const codigoProduto = parseInt(entrada("Digite o código do produto: "));
-    const  quantidadeComprada = parseInt(entrada("Digite a quantidade de produtos coimprados: "));
-    const precoTotal = 0;
- }
+    function menuPrecos() {
+        console.log("------- CALCULADORA DE PREÇOS -----------");
+        console.log("Código do produto          Preço unitário");
+        console.log("       2 ----------------- R$ 32,00");
+        console.log("       3 ----------------- R$ 45,00");
+        console.log("       4 ----------------- R$ 37,00");
+        console.log("       5 ----------------- R$ 32,00");
+        console.log("       6 ----------------- R$ 45,00");
+    }
+    
+    menuPrecos();
 
+    let codigoProduto = parseInt(entrada("Digite o código do produto: "));
+    let  quantidadeComprada = parseInt(entrada("Digite a quantidade de produtos comprados: "));
+    let precoTotal = 0;
+
+    switch(codigoProduto) {
+        case 2:
+            precoTotal = quantidadeComprada * precos[0][1];
+            console.log("Preço total: R$ " + precoTotal + ",00");
+            break;
+        case 3:
+            precoTotal = quantidadeComprada * precos[1][1];
+            console.log("Preço total: R$ " + precoTotal + ",00");
+            break;
+        case 4:
+            precoTotal = quantidadeComprada * precos[2][1];
+            console.log("Preço total: R$ " + precoTotal + ",00");
+            break;    
+        case 5:
+            precoTotal = quantidadeComprada * precos[3][1];
+            console.log("Preço total: R$ " + precoTotal + ",00");
+            break;
+        case 6:
+            precoTotal = quantidadeComprada * precos[4][1];
+            console.log("Preço total: R$ " + precoTotal + ",00");
+            break;
+        default:
+            console.log("Opção inválida!");
+            break;
+    
+    }
+}
 
 let opcao = "";
 
-while(opcao != "5") {
+while(opcao != "6") {
     mostaMenu();
 
     opcao = entrada("Digite a opção desejada: ");
 
-    if(opcao == "5"){
+    if(opcao == "6"){
         console.log("Programa encerrado!")
         break;
     }
-    
-    // const [n1, n2] = entrada("Digite dois numeros(separados por espaço): ").split(" ");
-    // let numero1 = parseFloat(n1);
-    // let numero2 = parseFloat(n2);
 
     switch (opcao){
         case "1":
@@ -142,11 +171,7 @@ while(opcao != "5") {
             saldoMedio();
             break;
         case "4":
-            if(numero2 == 0) {
-                console.log("Não é possível dividir por zero!");
-            } else {
-                console.log("Resultado da Divisão: " + divisao(numero1,numero2));
-            }
+            calculaPreco();
             break;
         default:
             console.log("Opção inválida!")
@@ -155,5 +180,4 @@ while(opcao != "5") {
    
 }
 
-// process.stdout.write('\x1B[2J\x1B[0f');
-//process.stdout.write('\x1Bc');
+
