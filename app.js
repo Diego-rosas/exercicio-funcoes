@@ -9,9 +9,9 @@ function mostaMenu() {
     console.log("   Menu Principal: ");
     console.log("1. Classificaão de Idade");
     console.log("2. Calculadora de Médias");
-    console.log("3. Calculadora de créditos");
-    console.log("4. Calculadora de valor total");
-    console.log("5. ");
+    console.log("3. Calculadora de Vréditos");
+    console.log("4. Calculadora de Valor Total");
+    console.log("5. Calculadora de Salários");
     console.log("6. Sair");
 }
 
@@ -148,6 +148,56 @@ function calculaPreco() {
     }
 }
 
+//Função 5
+function calculaSalario() {
+    const informacoes = [[101,"Gerente",10], [102,"Engenheiro",20], [103,"Técnico",30]];
+
+    function tabelaDeCargos() {
+        console.log("------- CALCULADORA DE SALÁRIOS -----------");
+        console.log("Código     Cargo            Percentual");
+        console.log("101        Gerente          10%");
+        console.log("102        Engenheiro       20%");
+        console.log("103        Técnico          30%");
+    }
+    
+    tabelaDeCargos();
+
+    let  salario = parseFloat(entrada("Digite o seu salário atual: "));
+    let codigo = parseInt(entrada("Digite o código do cargo: "));
+    let salarioAtualizado = 0;
+
+    switch(codigo) {
+        case 101:
+            salarioAtualizado = salario * (1 + (informacoes[0][2] / 100));
+            console.log("\nCargo escolhido: " + (informacoes[0][1])); 
+            console.log("Salário antigo: R$ " + salario + ",00");
+            console.log("Salário atualizado: R$ " + salarioAtualizado + ",00");
+            console.log("Diferemça entre os Salários: R$ " + (salarioAtualizado - salario) + ",00");
+            break;
+        case 102:
+            salarioAtualizado = salario * (1 + (informacoes[1][2] / 100));
+            console.log("\nCargo escolhido: " + (informacoes[1][1]));
+            console.log("Salário antigo: R$ " + salario + ",00");
+            console.log("Salário atualizado: R$ " + salarioAtualizado + ",00");
+            console.log("Diferemça entre os Salários: R$ " + (salarioAtualizado - salario) + ",00");
+            break;
+        case 103:
+            salarioAtualizado = salario * (1 + (informacoes[2][2] / 100));
+            console.log("\nCargo escolhido: " + (informacoes[2][1]));
+            console.log("Salário antigo: R$ " + salario + ",00");
+            console.log("Salário atualizado: R$ " + salarioAtualizado + ",00");
+            console.log("Diferemça entre os Salários: R$ " + (salarioAtualizado - salario) + ",00");
+            break;    
+        default:
+            console.log("\nCargo não listado, você receberá um aumento de 40%!");
+            salarioAtualizado = salario * (1 + (40 / 100));
+            console.log("Salário antigo: R$ " + salario + ",00");
+            console.log("Salário atualizado: R$ " + salarioAtualizado + ",00");
+            console.log("Diferemça entre os Salários: R$ " + (salarioAtualizado - salario) + ",00");
+            break;
+    }
+}
+
 let opcao = "";
 
 while(opcao != "6") {
@@ -173,11 +223,12 @@ while(opcao != "6") {
         case "4":
             calculaPreco();
             break;
+        case "5":
+            calculaSalario();
+            break;
         default:
             console.log("Opção inválida!")
             break;
     } 
-   
 }
-
 
