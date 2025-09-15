@@ -9,7 +9,7 @@ function mostaMenu() {
     console.log("   Menu Principal: ");
     console.log("1. Classificaão de Idade");
     console.log("2. Calculadora de Médias");
-    console.log("3. Calculadora de Vréditos");
+    console.log("3. Calculadora de Créditos");
     console.log("4. Calculadora de Valor Total");
     console.log("5. Calculadora de Salários");
     console.log("6. Sair");
